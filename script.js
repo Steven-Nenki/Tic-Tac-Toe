@@ -75,6 +75,9 @@ const jouerCase = (e) => {
     if(state.joueurEnCours == 1) {
       state.scoreJ1++
       score1.textContent = state.scoreJ1;
+      if(state.scoreJ1 == 3) {
+        alert(`Victoire écrasante du joueur ${state.joueurEnCours}`)
+      }
     } else {
       state.scoreJ2++
       score2.textContent = state.scoreJ2;

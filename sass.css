@@ -30,6 +30,12 @@ body {
   color: #e5beff;
 }
 
+@media screen and (max-width: 700px) {
+  body {
+    background-image: url("fond-tel.jpg");
+  }
+}
+
 #grid {
   display: -ms-grid;
   display: grid;
@@ -46,6 +52,12 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 3rem;
+}
+
+@media screen and (max-width: 700px) {
+  .case {
+    color: #fd3333;
+  }
 }
 
 p {

@@ -21,6 +21,12 @@ body {
   color: rgb(229, 190, 255)
 }
 
+@media screen and (max-width: 700px) {
+  body {
+    background-image: url('fond-tel.jpg');
+  }
+}
+
 #grid {
   display: grid;
   grid-template-columns: repeat(3, 5rem);
@@ -35,6 +41,12 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 3rem;
+}
+
+@media screen and (max-width: 700px) {
+  .case {
+    color: rgb(253, 51, 51);
+  }
 }
 
 p{ 

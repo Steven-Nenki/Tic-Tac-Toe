@@ -24,9 +24,10 @@ body {
           flex-direction: column;
   font-family: sans-serif;
   margin: 2rem;
-  background-image: url("fond.jpg");
+  background-image: url("fond.png");
   background-size: cover;
   background-position: center;
+  color: #e5beff;
 }
 
 #grid {
@@ -53,6 +54,14 @@ p {
 }
 
 p:first-of-type {
-  color: lightseagreen;
+  color: #00fff2;
+}
+
+h1 {
+  color: white;
+  text-shadow: 3px 3px 2px #4400ff;
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: 100;
 }
 /*# sourceMappingURL=sass.css.map */

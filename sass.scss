@@ -15,9 +15,10 @@ body {
   flex-direction: column;
   font-family: sans-serif;
   margin: 2rem;
-  background-image: url('fond.jpg');
+  background-image: url('fond.png');
   background-size: cover;
   background-position: center;
+  color: rgb(229, 190, 255)
 }
 
 #grid {
@@ -42,5 +43,13 @@ p{
 }
 
 p:first-of-type {
-  color: lightseagreen;
+  color: rgb(0, 255, 242);
+}
+
+h1{
+  color: white;
+  text-shadow: 3px 3px 2px rgb(68, 0, 255);
+   margin-top: 10px;
+   font-style: italic;
+   font-weight: 100;
 }

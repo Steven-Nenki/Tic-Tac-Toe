@@ -75,18 +75,18 @@ const jouerCase = (e) => {
     if(state.joueurEnCours == 1) {
       state.scoreJ1++
       score1.textContent = state.scoreJ1;
-      if(state.scoreJ1 == 3 && state.scoreJ2 < 3) {
-        alert(`Victoire écrasante du joueur ${state.joueurEnCours}`)
-      } else if (state.scoreJ1 == 3 && state.scoreJ2 >= 3) {
-        alert(`Belle remonter de la part du joueur ${state.joueurEnCours} !`)
+      if(state.scoreJ1 == 3 && state.scoreJ2 == 0) {
+        alert(`Le joueur ${state.joueurEnCours} écrase son adversaire`)
+      } else if (state.scoreJ1 == state.scoreJ2) {
+        alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
       }
     } else {
       state.scoreJ2++
       score2.textContent = state.scoreJ2;
-      if(state.scoreJ2 == 3 && state.scoreJ1 < 3) {
-        alert(`Victoire écrasante du joueur ${state.joueurEnCours}`)
-      } else if (state.scoreJ2 == 3 && state.scoreJ1 >= 3) {
-        alert(`Belle remonter de la part du joueur ${state.joueurEnCours} !`)
+      if(state.scoreJ2 == 3 && state.scoreJ1 == 0) {
+        alert(`Le joueur ${state.joueurEnCours} écrase son adversaire`)
+      } else if (state.scoreJ2 == state.scoreJ1) {
+        alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
       }
     }
     resetState();

@@ -24,6 +24,9 @@ body {
           flex-direction: column;
   font-family: sans-serif;
   margin: 2rem;
+  background-image: url("fond.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 #grid {

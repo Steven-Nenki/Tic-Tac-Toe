@@ -37,11 +37,13 @@ body {
 
 .case{
   @extend %flex;
-  border: 1px solid rgb(255, 0, 179);
+  border: 1px solid rgb(0, 47, 255);
   border-radius: 5px;
   cursor: pointer;
   font-size: 3rem;
-  color: red
+  color: rgb(255, 96, 96);
+  box-shadow: 0px 0px 15px blue;
+  text-shadow: 0px 0px 15px rgb(255, 0, 0);
 }
 
 @media screen and (max-width: 700px) {

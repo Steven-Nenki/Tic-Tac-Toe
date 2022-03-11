@@ -48,11 +48,14 @@ body {
 }
 
 .case {
-  border: 1px solid #ff00b3;
+  border: 1px solid #002fff;
   border-radius: 5px;
   cursor: pointer;
   font-size: 3rem;
-  color: red;
+  color: #ff6060;
+  -webkit-box-shadow: 0px 0px 15px blue;
+          box-shadow: 0px 0px 15px blue;
+  text-shadow: 0px 0px 15px red;
 }
 
 @media screen and (max-width: 700px) {

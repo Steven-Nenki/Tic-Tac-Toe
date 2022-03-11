@@ -27,7 +27,7 @@ body {
   background-image: url("fond.png");
   background-size: cover;
   background-position: center;
-  color: #e5beff;
+  color: #4f42ff;
 }
 
 @media screen and (max-width: 700px) {
@@ -48,10 +48,11 @@ body {
 }
 
 .case {
-  border: 1px solid lightgray;
+  border: 1px solid #ff00b3;
   border-radius: 5px;
   cursor: pointer;
   font-size: 3rem;
+  color: red;
 }
 
 @media screen and (max-width: 700px) {

@@ -33,6 +33,15 @@ const resetState = () => {
   state.c9 = 0;
 };
 
+const resetScore = () => {
+  state.scoreJ1 = 0;
+  score1.textContent = state.scoreJ1;
+  state.scoreJ2 = 0,
+  score2.textContent = state.scoreJ2;
+  state.scoreNul = 0,
+  scoreNul.textContent = state.scoreNul; 
+}
+
 const verifierVictoire = () => {
   if(
     (state.c1 == state.c2 && state.c2 == state.c3 && state.c1 > 0) ||
@@ -62,6 +71,8 @@ const verifierVictoire = () => {
   }
 }
 
+
+
 const jouerCase = (e) => {
   let idCase = e.target.id;
   if (state[idCase] !== 0) return;
@@ -72,33 +83,69 @@ const jouerCase = (e) => {
 
   if(isVictoire === true){
     alert(`Le gagnant est le joueur ${state.joueurEnCours}`);
+
     if(state.joueurEnCours == 1) {
       state.scoreJ1++
       score1.textContent = state.scoreJ1;
+
       if(state.scoreJ1 == 3 && state.scoreJ2 == 0) {
         alert(`Le joueur ${state.joueurEnCours} écrase son adversaire`)
-      } else if (state.scoreJ1 == state.scoreJ2) {
+      } 
+      
+      else if (state.scoreJ1 == state.scoreJ2) {
         alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
+      } 
+      
+      else if (state.scoreJ1 == 5 && state.scoreJ2 == 0) {
+        alert(`Victoire totale et écrasante du joueur ${state.joueurEnCours}`)
+        resetScore()  
+      } 
+      
+      else if (state.scoreJ1 == 5) {
+        alert(`Victoire du joueur ${state.joueurEnCours}`)
+        resetScore()
       }
+
     } else {
       state.scoreJ2++
       score2.textContent = state.scoreJ2;
+
       if(state.scoreJ2 == 3 && state.scoreJ1 == 0) {
         alert(`Le joueur ${state.joueurEnCours} écrase son adversaire`)
-      } else if (state.scoreJ2 == state.scoreJ1) {
+      } 
+
+      else if (state.scoreJ2 == state.scoreJ1) {
         alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
+      } 
+      
+      else if (state.scoreJ2 == 5 && state.scoreJ1 == 0) {
+        alert(`Victoire totale et écrasante du joueur ${state.joueurEnCours}`)
+        resetScore()  
+      } 
+      
+      else if (state.scoreJ2 == 5) {
+        alert(`Victoire du joueur ${state.joueurEnCours}`)
+        resetScore()
       }
     }
     resetState();
     cases.forEach(c => (c.textContent = ''));
+
   } else if (isVictoire === null) {
     alert('Match null')
     state.matchNuls++
     scoreNul.textContent = state.matchNuls;
     joueur.textContent = '1';
+
+    if (state.matchNuls == 3) {
+      alert('Vous avez un exellent niveau, impossible de vous départager')
+      resetScore()
+    }
     resetState();
     cases.forEach( (c) => (c.textContent = ''));
-  } else if (isVictoire === false) {
+  } 
+  
+  else if (isVictoire === false) {
     if (state.joueurEnCours == 1) {
       e.target.textContent = "X";
       state.joueurEnCours = "2";
@@ -110,6 +157,8 @@ const jouerCase = (e) => {
     }
   }
 };
+
+
 
 cases.forEach((el) => {
   el.addEventListener('click', jouerCase);

@@ -82,67 +82,121 @@ const jouerCase = (e) => {
   let isVictoire = verifierVictoire();
 
   if(isVictoire === true){
-    alert(`Le gagnant est le joueur ${state.joueurEnCours}`);
+    setTimeout(() => {
+      alert(`Le gagnant est le joueur ${state.joueurEnCours}`);
+      });
+    
 
+      // Joueur 1
     if(state.joueurEnCours == 1) {
+      e.target.textContent = "X";
       state.scoreJ1++
       score1.textContent = state.scoreJ1;
 
+      // 3-0
+      setTimeout(() => {
       if(state.scoreJ1 == 3 && state.scoreJ2 == 0) {
         alert(`Le joueur ${state.joueurEnCours} écrase son adversaire`)
       } 
+      },);
       
-      else if (state.scoreJ1 == state.scoreJ2) {
-        alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
-      } 
+      // ?-?
+      setTimeout(() => {
+        if (state.scoreJ1 == state.scoreJ2) {
+          alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
+        } 
+      });
       
-      else if (state.scoreJ1 == 5 && state.scoreJ2 == 0) {
-        alert(`Victoire totale et écrasante du joueur ${state.joueurEnCours}`)
-        resetScore()  
-      } 
+      // 5-0
+      setTimeout(() => {
+        if (state.scoreJ1 == 5 && state.scoreJ2 == 0) {
+          alert(`Victoire totale et écrasante du joueur ${state.joueurEnCours}`)
+          resetScore()  
+        } 
+      });
       
-      else if (state.scoreJ1 == 5) {
-        alert(`Victoire du joueur ${state.joueurEnCours}`)
-        resetScore()
-      }
+      // 5-?
+      setTimeout(() => {
+        if (state.scoreJ1 == 5) {
+          alert(`Victoire du joueur ${state.joueurEnCours}`)
+          resetScore()
+        }
+      });
 
+      // Joueur 2
     } else {
+      e.target.textContent = 'O';
       state.scoreJ2++
       score2.textContent = state.scoreJ2;
 
-      if(state.scoreJ2 == 3 && state.scoreJ1 == 0) {
-        alert(`Le joueur ${state.joueurEnCours} écrase son adversaire`)
-      } 
+      // 3-0
+      setTimeout(() => {
+        if(state.scoreJ2 == 3 && state.scoreJ1 == 0) {
+          alert(`Le joueur ${state.joueurEnCours} écrase son adversaire`)
+        } 
+        });
+        
+      // ?-?
+      setTimeout(() => {
+        if (state.scoreJ2 == state.scoreJ1) {
+          alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
+        } 
+      });
+      
+      // 5-0
+      setTimeout(() => {
+        if (state.scoreJ2 == 5 && state.scoreJ1 == 0) {
+          alert(`Victoire totale et écrasante du joueur ${state.joueurEnCours}`)
+          resetScore()  
+        } 
+      });
+      
+      // 5-?
+      setTimeout(() => {
+        if (state.scoreJ2 == 5) {
+          alert(`Victoire du joueur ${state.joueurEnCours}`)
+          resetScore()
+        }
+      });
+    }
+    setTimeout(() => {
+      resetState();
+      cases.forEach( (c) => (c.textContent = ''));
+      });
 
-      else if (state.scoreJ2 == state.scoreJ1) {
-        alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
-      } 
-      
-      else if (state.scoreJ2 == 5 && state.scoreJ1 == 0) {
-        alert(`Victoire totale et écrasante du joueur ${state.joueurEnCours}`)
-        resetScore()  
-      } 
-      
-      else if (state.scoreJ2 == 5) {
-        alert(`Victoire du joueur ${state.joueurEnCours}`)
-        resetScore()
+
+      // Match null
+  } else if (isVictoire === null) {
+    setTimeout(() => {
+      alert('Match null')
+    })
+
+    function MatchNul () {
+      if (state.joueurEnCours == 1) {
+        e.target.textContent = 'X'
+      } else {
+        e.target.textContent = 'O'
       }
     }
-    resetState();
-    cases.forEach(c => (c.textContent = ''));
-
-  } else if (isVictoire === null) {
-    alert('Match null')
+    MatchNul()
     state.matchNuls++
     scoreNul.textContent = state.matchNuls;
     joueur.textContent = '1';
 
-    if (state.matchNuls == 3) {
-      alert('Vous avez un exellent niveau, impossible de vous départager')
-      resetScore()
-    }
+    setTimeout(() => {
+      if (state.matchNuls == 3) {
+        alert('Vous avez un exellent niveau, impossible de vous départager')
+        resetScore()
+      }
+    })
+
+    setTimeout(() => {
     resetState();
     cases.forEach( (c) => (c.textContent = ''));
+    });
+      
+    
+    
   } 
   
   else if (isVictoire === false) {

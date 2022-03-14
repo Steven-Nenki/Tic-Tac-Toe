@@ -3,9 +3,19 @@ let joueur = document.getElementById('joueur');
 let score1 = document.getElementById('score1');
 let score2 = document.getElementById('score2');
 let scoreNul = document.getElementById('scoreNul');
+let J1 = document.getElementById('J1')
+let J2 = document.getElementById('J2')
+let SJ1 = document.getElementById('SJ1')
+let SJ2 = document.getElementById('SJ2')
+
+
+joueur.textContent = J1.textContent
+
 
 let state = {
-  joueurEnCours: 1,
+  SJ1: 'X',
+  SJ2: 'O',
+  joueurEnCours: '1',
   scoreJ1: 0,
   scoreJ2: 0,
   matchNuls: 0,
@@ -83,34 +93,58 @@ const jouerCase = (e) => {
 
   if(isVictoire === true){
     setTimeout(() => {
-      alert(`Le gagnant est le joueur ${state.joueurEnCours}`);
+      if (
+        (state.scoreJ1 == 1 && state.scoreJ2 == 0) ||
+        (state.scoreJ1 == 2 && state.scoreJ2 == 0) ||
+        (state.scoreJ1 == 4 && state.scoreJ2 == 0) ||
+        (state.scoreJ1 == 2 && state.scoreJ2 == 1) ||
+        (state.scoreJ1 == 3 && state.scoreJ2 == 1) ||
+        (state.scoreJ1 == 3 && state.scoreJ2 == 2) ||
+        (state.scoreJ1 == 4 && state.scoreJ2 == 1) ||
+        (state.scoreJ1 == 4 && state.scoreJ2 == 2) ||
+        (state.scoreJ1 == 4 && state.scoreJ2 == 3)
+        ) {
+        alert(`Victoire de ${J1.textContent}`);
+      } else if (
+        (state.scoreJ2 == 1 && state.scoreJ1 == 0) ||
+        (state.scoreJ2 == 2 && state.scoreJ1 == 0) ||
+        (state.scoreJ2 == 4 && state.scoreJ1 == 0) ||
+        (state.scoreJ2 == 2 && state.scoreJ1 == 1) ||
+        (state.scoreJ2 == 3 && state.scoreJ1 == 1) ||
+        (state.scoreJ2 == 3 && state.scoreJ1 == 2) ||
+        (state.scoreJ2 == 4 && state.scoreJ1 == 1) ||
+        (state.scoreJ2 == 4 && state.scoreJ1 == 2) ||
+        (state.scoreJ2 == 4 && state.scoreJ1 == 3)
+      ) {
+        alert(`Victoire de ${J2.textContent}`);
+      }
       });
     
 
       // Joueur 1
     if(state.joueurEnCours == 1) {
-      e.target.textContent = "X";
+      e.target.textContent = state.SJ1;
       state.scoreJ1++
       score1.textContent = state.scoreJ1;
 
       // 3-0
       setTimeout(() => {
       if(state.scoreJ1 == 3 && state.scoreJ2 == 0) {
-        alert(`Le joueur ${state.joueurEnCours} écrase son adversaire`)
+        alert(`${J1.textContent} écrase ${J2.textContent}`)
       } 
       },);
       
       // ?-?
       setTimeout(() => {
         if (state.scoreJ1 == state.scoreJ2) {
-          alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
+          alert(`${J1.textContent} égalise le score !`)
         } 
       });
       
       // 5-0
       setTimeout(() => {
         if (state.scoreJ1 == 5 && state.scoreJ2 == 0) {
-          alert(`Victoire totale et écrasante du joueur ${state.joueurEnCours}`)
+          alert(`${J1.textContent} remporte la partie haut la main`)
           resetScore()  
         } 
       });
@@ -118,35 +152,35 @@ const jouerCase = (e) => {
       // 5-?
       setTimeout(() => {
         if (state.scoreJ1 == 5) {
-          alert(`Victoire du joueur ${state.joueurEnCours}`)
+          alert(`${J1.textContent} remporte la partie`)
           resetScore()
         }
       });
 
       // Joueur 2
     } else {
-      e.target.textContent = 'O';
+      e.target.textContent = state.SJ2;
       state.scoreJ2++
       score2.textContent = state.scoreJ2;
 
       // 3-0
       setTimeout(() => {
         if(state.scoreJ2 == 3 && state.scoreJ1 == 0) {
-          alert(`Le joueur ${state.joueurEnCours} écrase son adversaire`)
+          alert(`${J2.textContent} écrase ${J1.textContent}`)
         } 
         });
         
       // ?-?
       setTimeout(() => {
         if (state.scoreJ2 == state.scoreJ1) {
-          alert(`Le joueur ${state.joueurEnCours} égalise le score !`)
+          alert(`${J2.textContent} égalise le score !`)
         } 
       });
       
       // 5-0
       setTimeout(() => {
         if (state.scoreJ2 == 5 && state.scoreJ1 == 0) {
-          alert(`Victoire totale et écrasante du joueur ${state.joueurEnCours}`)
+          alert(`${J2.textContent} remporte la partie haut la main`)
           resetScore()  
         } 
       });
@@ -154,7 +188,7 @@ const jouerCase = (e) => {
       // 5-?
       setTimeout(() => {
         if (state.scoreJ2 == 5) {
-          alert(`Victoire du joueur ${state.joueurEnCours}`)
+          alert(`${J2.textContent} remporte la partie`)
           resetScore()
         }
       });
@@ -173,9 +207,9 @@ const jouerCase = (e) => {
 
     function MatchNul () {
       if (state.joueurEnCours == 1) {
-        e.target.textContent = 'X'
+        e.target.textContent = state.SJ1
       } else {
-        e.target.textContent = 'O'
+        e.target.textContent = state.SJ2
       }
     }
     MatchNul()
@@ -201,13 +235,13 @@ const jouerCase = (e) => {
   
   else if (isVictoire === false) {
     if (state.joueurEnCours == 1) {
-      e.target.textContent = "X";
-      state.joueurEnCours = "2";
-      joueur.textContent = "2";
+      e.target.textContent = state.SJ1;
+      state.joueurEnCours = 2;
+      joueur.textContent = J2.textContent;
     } else {
-      e.target.textContent = 'O';
-      state.joueurEnCours = "1";
-      joueur.textContent = "1";
+      e.target.textContent = state.SJ2;
+      state.joueurEnCours = 1;
+      joueur.textContent = J1.textContent;
     }
   }
 };

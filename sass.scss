@@ -24,6 +24,7 @@ body {
 @media screen and (max-width: 700px) {
   body {
     background-image: url('fond-tel.jpg');
+    color: red
   }
 }
 
@@ -57,7 +58,7 @@ p{
   font-size: 1.5rem;
 }
 
-p:first-of-type {
+p#tour {
   color: rgb(0, 255, 242);
 }
 

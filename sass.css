@@ -81,4 +81,24 @@ h1 {
   font-style: italic;
   font-weight: 100;
 }
+
+#game {
+  z-index: 1;
+}
+
+#voile {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 2;
+  position: absolute;
+  opacity: 0.5;
+}
+
+#form {
+  z-index: 3;
+}
 /*# sourceMappingURL=sass.css.map */

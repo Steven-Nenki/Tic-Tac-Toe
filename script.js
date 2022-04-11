@@ -225,7 +225,12 @@ const jouerCase = (e) => {
       // Match null
   } else if (isVictoire === null) {
     setTimeout(() => {
-      alert('Match null')
+      if (state.matchNuls == 3) {
+        alert('Vous avez un exellent niveau, impossible de vous départager')
+        resetScore()
+      } else {
+        alert('Match null')
+      }
     })
 
     function MatchNul () {
@@ -239,13 +244,6 @@ const jouerCase = (e) => {
     state.matchNuls++
     scoreNul.textContent = state.matchNuls;
     joueur.textContent = '1';
-
-    setTimeout(() => {
-      if (state.matchNuls == 3) {
-        alert('Vous avez un exellent niveau, impossible de vous départager')
-        resetScore()
-      }
-    })
 
     setTimeout(() => {
     resetState();

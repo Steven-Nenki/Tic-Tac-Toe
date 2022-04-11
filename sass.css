@@ -16,6 +16,16 @@ body, .case {
           align-items: center;
 }
 
+#form, .txt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +39,6 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   font-family: sans-serif;
-  margin: 2rem;
   background-image: url("fond.png");
   background-size: cover;
   background-position: center;
@@ -86,6 +95,7 @@ h1 {
   margin-top: 10px;
   font-style: italic;
   font-weight: 100;
+  text-align: center;
 }
 
 #game {
@@ -93,18 +103,45 @@ h1 {
 }
 
 #voile {
+  z-index: 2;
   width: 100%;
   height: 100%;
   background-color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 2;
   position: absolute;
   opacity: 0.5;
 }
 
 #form {
+  padding: 15px;
   z-index: 3;
+  width: 500px;
+  height: 200px;
+  background: rgba(251, 251, 251, 0.841);
+  border-radius: 5px;
+  position: absolute;
+}
+
+.cadre {
+  border-radius: 8px;
+  height: 25px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.txt {
+  margin: auto;
+}
+
+#button {
+  padding: 5px;
+  color: #4400ff;
+  font-size: 1.2em;
+  border-radius: 8px;
+  float: right;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 /*# sourceMappingURL=sass.css.map */

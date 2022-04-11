@@ -10,6 +10,11 @@ html, body{
   align-items: center;
 }
 
+%flex-align{
+  display: flex;
+  flex-direction: column;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -20,11 +25,11 @@ body {
   @extend %flex;
   flex-direction: column;
   font-family: sans-serif;
-  margin: 2rem;
   background-image: url('fond.png');
   background-size: cover;
   background-position: center;
   color: rgb(79, 66, 255);
+ 
 }
 
 @media screen and (max-width: 700px) {
@@ -70,10 +75,11 @@ p#tour {
 
 h1{
   color: white;
-  text-shadow: 3px 3px 2px rgb(68, 0, 255);
+  text-shadow: 3px 3px 2px #4400ff;
    margin-top: 10px;
    font-style: italic;
    font-weight: 100;
+   text-align: center;
 }
 
 #game{
@@ -81,15 +87,43 @@ h1{
 }
 
 #voile{
+  z-index: 2;
   width: 100%;
   height: 100%;
   background-color: black;
   display: flex;
-  z-index: 2;
   position: absolute;
   opacity: 0.5;
 }
 
 #form{
+  padding: 15px;
   z-index: 3;
+  @extend %flex-align;
+  width: 500px;
+  height: 200px;
+  background: rgba(251, 251, 251, 0.841);
+  border-radius: 5px;
+  position: absolute;
+}
+
+.cadre{
+  border-radius: 8px;
+  height: 25px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.txt{
+  margin: auto;
+  @extend %flex-align;
+}
+
+#button{
+  padding: 5px;
+  color: #4400ff;
+  font-size: 1.2em;
+  border-radius: 8px;
+  float: right;
+  align-self: flex-end;
 }

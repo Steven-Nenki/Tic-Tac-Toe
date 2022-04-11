@@ -8,9 +8,32 @@ let J2 = document.getElementById('J2')
 let SJ1 = document.getElementById('SJ1')
 let SJ2 = document.getElementById('SJ2')
 
+let voile = document.getElementById('voile')
+let button = document.getElementById('button')
+let form = document.getElementById('form')
 
-joueur.textContent = J1.textContent
 
+
+
+button.addEventListener('click', () => {
+  let name1 = document.getElementById('name1').value
+  let name2 = document.getElementById('name2').value
+  if(name1 == '' || name2 == '') {
+    if(name1 == '' && name2 == '') {
+      alert('Veuillez entrer les noms des 2 joueurs')
+    } else if (name1 == ''){
+      alert('Veuillez entrer le nom du joueur 1')
+    } else if (name2 == ''){
+      alert('Veuillez entrer le nom du joueur 2')
+    } 
+  } else {
+    voile.style.display = 'none'
+    form.style.display = 'none'
+    J1.textContent = name1
+    J2.textContent = name2
+    joueur.textContent = name1.textContent
+  }
+}, false)
 
 let state = {
   SJ1: 'X',

@@ -31,7 +31,7 @@ button.addEventListener('click', () => {
     form.style.display = 'none'
     J1.textContent = name1
     J2.textContent = name2
-    joueur.textContent = name1.textContent
+    joueur.textContent = name1
   }
 }, false)
 
